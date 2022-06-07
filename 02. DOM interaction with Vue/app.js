@@ -7,7 +7,8 @@ new Vue({
 
     methods: {
         sayHello() {
+            this.title = 'Hello!';
             return this.title;
-        }
+        },
     }
 });
