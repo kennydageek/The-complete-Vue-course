@@ -11,14 +11,8 @@
 
   <body>
     <div id="app">
-      <button v-on:click="counter++">
-        Incease</button>
-      <button v-on:click="counter--">
-        Decrease</button>
-      <button v-on:click="secondCounter++">
-        Increase Second</button>
-      <p>Courter: {{ counter }}</p>
-      <p>Result: {{ result() }} | {{ output }}</p>
+      <button @click="changeLink">Click to Change Link</button>
+      <a :href="link">Link</a>
     </div>
 
     <script src="vue.js"></script>
