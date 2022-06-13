@@ -4,6 +4,17 @@ new Vue({
         product: 'Socks',
         description: 'This is a product page for socks',
         image: '/images/socks_green.jpg',
-        link: 'https://google.com'
+        inStock: true,
+        details: ['80% cotton', "20% polyester", "Gender-neutral"],
+        variants: [
+            {
+                variantId: 2234,
+                variantColor: "green"
+            },
+            {
+                variantId: 2235,
+                variantColor: "blue",
+            }
+        ],
     }
 })
