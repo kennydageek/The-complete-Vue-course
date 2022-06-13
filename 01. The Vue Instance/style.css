@@ -53,6 +53,11 @@ button {
     font-size: 14px;
 }
 
+.lineThrough {
+    text-decoration: line-through;
+    color: #282828;
+}
+
 .disabledButton {
     background-color: #d8d8d8;
 }

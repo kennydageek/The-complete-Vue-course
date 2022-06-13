@@ -4,7 +4,7 @@ new Vue({
         product: 'Socks',
         description: 'This is a product page for socks',
         image: '/images/socks_green.jpg',
-        inStock: true,
+        inStock: false,
         details: ['80% cotton', "20% polyester", "Gender-neutral"],
         variants: [
             {
@@ -25,10 +25,6 @@ new Vue({
     methods: {
         addToCart() {
             this.cart += 1;
-        },
-
-        decreaseCart() {
-            this.cart -= 1;
         },
 
         updateProduct(variantImage) {
