@@ -12,6 +12,8 @@ body {
 
 .product {
     display: flex;
+    flex-flow: wrap;
+    padding: 1rem;
 }
 
 img {
@@ -22,12 +24,13 @@ img {
 }
 
 .product-image {
-    flex-basis: 700px;
+    width: 80%;
 }
 
+.product-image,
 .product-info {
     margin-top: 10px;
-    flex-basis: 500px;
+    width: 50%;
 }
 
 .color-box {
@@ -53,18 +56,14 @@ button {
     font-size: 14px;
 }
 
-.lineThrough {
-    text-decoration: line-through;
-    color: #282828;
-}
-
 .disabledButton {
     background-color: #d8d8d8;
 }
 
 .review-form {
-    width: 30%;
+    width: 400px;
     padding: 20px;
+    margin: 40px;
     border: 1px solid #d8d8d8;
 }
 
