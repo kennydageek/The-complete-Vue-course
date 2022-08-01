@@ -8,9 +8,9 @@
       <button class="btn-Todo">Todo</button>
     </div>
 
-    <div class="todolist">
+    <div class="todolist" v-for="todo in todos" :key="todo">
       <div class="todolist__item">
-        <p>Learn Vue Basics</p>
+        <p>{{ todo }}</p>
         <div class="todo-icons">
           <input type="checkbox" name="" class="checkbox" />
           <p class="edit"><i class="fa-solid fa-pen"></i></p>
@@ -24,6 +24,11 @@
 <script>
 export default {
   name: 'TodoList',
+  computed: {
+    todos() {
+      return this.$store.state.todos;
+    },
+  },
 };
 </script>
 
