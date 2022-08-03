@@ -8,13 +8,17 @@
       <button class="btn-Todo">Todo</button>
     </div>
 
-    <div class="todolist" v-for="todo in todos" :key="todo">
+    <div class="todolist" v-for="todo in todos" :key="todo.id">
       <div class="todolist__item">
-        <p>{{ todo }}</p>
+        <p>{{ todo.todo }}</p>
         <div class="todo-icons">
           <input type="checkbox" name="" class="checkbox" />
-          <p class="edit"><i class="fa-solid fa-pen"></i></p>
-          <p class="delete"><i class="fa-solid fa-trash"></i></p>
+          <p class="edit" @click="editTodo(todo.id)">
+            <i class="fa-solid fa-pen"></i>
+          </p>
+          <p class="delete" @click="deleteTodo(todo.id)">
+            <i class="fa-solid fa-trash"></i>
+          </p>
         </div>
       </div>
     </div>
@@ -22,11 +26,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'TodoList',
-  computed: {
-    todos() {
-      return this.$store.state.todos;
+  computed: mapState(['todos']),
+
+  methods: {
+    deleteTodo(id) {
+      this.$store.dispatch('deleteTodo', id);
+    },
+    editTodo(id) {
+      this.$store.dispatch('editTodo', id);
     },
   },
 };

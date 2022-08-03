@@ -4,17 +4,28 @@
       <div class="todo-icon">
         <img src="../assets/book-solid.svg" alt="" class="todo-icon__icon" />
       </div>
-      <input type="text" class="todo-input__input" placeholder="New Todo" />
+      <input
+        type="text"
+        class="todo-input__input"
+        placeholder="New Todo"
+        v-model="$store.state.newTodo"
+      />
     </div>
     <div class="todo-button">
-      <button>Add new task</button>
+      <button @click="$store.dispatch('addTodo')">Add new Task</button>
     </div>
   </div>
 </template>
 
 <script>
+// import { mapState } from 'vuex';
 export default {
   name: 'TodoInput',
+  computed: {
+    newTodo() {
+      return this.$store.state.newTodo;
+    },
+  },
 };
 </script>
 
