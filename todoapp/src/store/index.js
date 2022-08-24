@@ -6,10 +6,10 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     todos: [
-      { id: 1, todo: 'Arrange my bag', done: true },
-      { id: 2, todo: 'All is well', done: false },
-      { id: 3, todo: 'learn vuex', done: false },
-      { id: 4, todo: 'build a todo app', done: false },
+      // { id: 1, todo: 'Arrange my bag', done: true },
+      // { id: 2, todo: 'All is well', done: false },
+      // { id: 3, todo: 'learn vuex', done: false },
+      // { id: 4, todo: 'build a todo app', done: false },
     ],
     newTodo: '',
   },
