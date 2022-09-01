@@ -231,6 +231,24 @@
       "date": "",
       "time": "5:00",
       "attendees": []
+    },
+    {
+      "id": 3921110,
+      "user": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "category": "nature",
+      "organizer": {
+        "id": "abc123",
+        "name": "Adam"
+      },
+      "title": "llklkj",
+      "description": "llklklkjjkjkllkjlkkl",
+      "location": "kiiuyuii",
+      "date": "2022-08-04T15:29:00.000Z",
+      "time": "14:00",
+      "attendees": []
     }
   ]
 }
