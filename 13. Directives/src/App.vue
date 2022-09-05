@@ -12,6 +12,7 @@
       >
         {{ link.label }}
       </v-btn>
+      <v-btn @click="toggleTheme" text rounded>Toggle Theme</v-btn>
     </v-app-bar>
     <v-content>
       <router-view></router-view>
@@ -45,22 +46,29 @@ export default {
       links: [
         {
           label: 'Home',
-          url: '/'
+          url: '/',
         },
         {
           label: 'Login',
-          url: '/login'
+          url: '/login',
         },
         {
           label: 'Signup',
-          url: '/signup'
+          url: '/signup',
         },
         {
           label: 'Dashboard',
-          url: '/dashboard'
-        }
-      ]
-    }
-  }
-}
+          url: '/dashboard',
+        },
+      ],
+    };
+  },
+
+  methods: {
+    toggleTheme() {
+      this.$vuetify.theme.themes.dark.anchor = '#41b883';
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
+    },
+  },
+};
 </script>

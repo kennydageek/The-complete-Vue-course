@@ -29,7 +29,7 @@
       </v-col>
     </v-row>
 
-    <v-row id="below-the-fold">
+    <v-row id="below-the-fold" v-intersect="showMoreContent">
       <v-col cols="12" md="8">
         <EmployeesTable :employees="employees" @select-employee="setEmployee" />
       </v-col>
@@ -38,7 +38,7 @@
       </v-col>
     </v-row>
 
-    <v-row id="more-content">
+    <v-row v-if="loadNewContent" id="more-content">
       <v-col>
         <v-skeleton-loader
           ref="skeleton"
@@ -59,15 +59,15 @@
 </template>
 
 <script>
-import EmployeesTable from '../components/EmployeesTable'
-import EventTimeline from '../components/EventTimeline'
-import SalesGraph from '../components/SalesGraph'
-import StatisticCard from '../components/StatisticCard'
+import EmployeesTable from '../components/EmployeesTable';
+import EventTimeline from '../components/EventTimeline';
+import SalesGraph from '../components/SalesGraph';
+import StatisticCard from '../components/StatisticCard';
 
-import employeesData from '../data/employees.json'
-import timelineData from '../data/timeline.json'
-import salesData from '../data/sales.json'
-import statisticsData from '../data/statistics.json'
+import employeesData from '../data/employees.json';
+import timelineData from '../data/timeline.json';
+import salesData from '../data/sales.json';
+import statisticsData from '../data/statistics.json';
 
 export default {
   name: 'DashboardPage',
@@ -75,27 +75,31 @@ export default {
     EmployeesTable,
     EventTimeline,
     SalesGraph,
-    StatisticCard
+    StatisticCard,
   },
   data() {
     return {
       employees: employeesData,
+      loadNewContent: false,
       sales: salesData,
       selectedEmployee: {
         name: '',
-        title: ''
+        title: '',
       },
       snackbar: false,
       statistics: statisticsData,
-      timeline: timelineData
-    }
+      timeline: timelineData,
+    };
   },
   methods: {
     setEmployee(event) {
-      this.snackbar = true
-      this.selectedEmployee.name = event.name
-      this.selectedEmployee.title = event.title
-    }
-  }
-}
+      this.snackbar = true;
+      this.selectedEmployee.name = event.name;
+      this.selectedEmployee.title = event.title;
+    },
+    showMoreContent(entries) {
+      this.loadNewContent = entries[0].isIntersecting;
+    },
+  },
+};
 </script>
