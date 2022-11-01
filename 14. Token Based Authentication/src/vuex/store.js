@@ -16,6 +16,11 @@ export default new Vuex.Store({
         userData.token
       }`;
     },
+
+    CLEAR_USER_DATA() {
+      localStorage.removeItem('user');
+      location.reload();
+    },
   },
   actions: {
     register({ commit }, credentials) {
@@ -32,6 +37,10 @@ export default new Vuex.Store({
         .then(({ data }) => {
           commit('SET_USER_DATA', data);
         });
+    },
+
+    logout({ commit }) {
+      commit('CLEAR_USER_DATA');
     },
   },
 
