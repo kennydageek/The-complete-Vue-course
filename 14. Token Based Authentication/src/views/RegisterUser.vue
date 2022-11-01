@@ -17,6 +17,9 @@
       <input v-model="password" type="text" name="password" value />
 
       <button type="submit" name="button">Register</button>
+      <ul>
+        <li v-for="(error, i) in errors" :key="i">{{ error }}</li>
+      </ul>
       <router-link to="/login"> Already have an account? Login. </router-link>
     </form>
   </div>
@@ -29,6 +32,7 @@ export default {
       name: '',
       email: '',
       password: '',
+      errors: null,
     };
   },
 
@@ -42,6 +46,10 @@ export default {
         })
         .then(() => {
           this.$router.push({ name: 'dashboard' });
+        })
+        .catch((err) => {
+          console.log(err.response);
+          this.errors = err.response.data;
         });
     },
   },

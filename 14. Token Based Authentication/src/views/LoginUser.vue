@@ -15,7 +15,11 @@
         Login
       </button>
 
-      <router-link to="/register"> Don't have an account? Register </router-link>
+      <p>{{ error }}</p>
+
+      <router-link to="/register">
+        Don't have an account? Register
+      </router-link>
     </form>
   </div>
 </template>
@@ -26,19 +30,24 @@ export default {
     return {
       email: '',
       password: '',
+      error: null,
     };
   },
 
   methods: {
     login() {
-        this.$store.dispatch('login', {
-            email: this.email,
-            password: this.password
+      this.$store
+        .dispatch('login', {
+          email: this.email,
+          password: this.password,
         })
         .then(() => {
-            this.$router.push({name: 'dashboard'})
+          this.$router.push({ name: 'dashboard' });
         })
-    }
+        .catch((err) => {
+          this.error = err.response.data;
+        });
+    },
   },
 };
 </script>
